@@ -1,22 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React ,{useState} from 'react'
 function App() {
+  const [state, setState] = React.useState();
+
+  function showText(){
+    setState("Text is shown");
+  }
+  function hideText(){
+    setState("");
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="hdiv" onMouseEnter={showText}
+        onMouseLeave={hideText}>
+          <h2>Hover Mouse On</h2>
+        </div>
+        <small>{state}</small>
       </header>
     </div>
   );
